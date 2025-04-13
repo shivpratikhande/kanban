@@ -23,7 +23,7 @@ const HeroSection: React.FC = () => {
 
             <div className="flex flex-wrap gap-4">
               <a
-                href="#"
+                href="/home"
                 className="inline-flex items-center px-6 py-3 text-white bg-blue-600 hover:bg-blue-700 rounded-lg font-medium transition"
               >
                 Get Started Free

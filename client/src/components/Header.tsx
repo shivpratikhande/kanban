@@ -23,7 +23,7 @@ const Header: React.FC = () => {
             <rect x="16" y="10" width="4" height="4" rx="1" fill="white" />
             <rect x="16" y="16" width="4" height="4" rx="1" fill="white" />
           </svg>
-          <span className="text-xl font-bold text-gray-900">KanbanFlow</span>
+          <span className="text-xl font-bold text-gray-900">Forge</span>
         </a>
 
         {/* Desktop Navigation */}

@@ -93,7 +93,7 @@ export function AppSidebar() {
     const [showPopup, setShowPopup] = useState<boolean>(false);
     const [activeProjectId, setActiveProjectId] = useState<number | null>(null);
     const [dropdownOpen, setDropdownOpen] = useState<number | null>(null);
-    
+
     const dropdownRef = useRef<HTMLDivElement>(null);
     const editInputRef = useRef<HTMLInputElement>(null);
 
@@ -101,18 +101,18 @@ export function AppSidebar() {
 
     useEffect(() => {
         fetchProjects();
-        
+
         // Close dropdown when clicking outside
         const handleClickOutside = (event: MouseEvent) => {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setDropdownOpen(null);
             }
         };
-        
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
-    
+
     useEffect(() => {
         // Focus on edit input when editing starts
         if (editingProject !== null && editInputRef.current) {
@@ -211,11 +211,24 @@ export function AppSidebar() {
     return (
         <>
             <Sidebar className="border-r">
-                <SidebarHeader className="flex items-center justify-center py-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-600 text-white">
-                        <LayoutGrid className="h-6 w-6" />
-                    </div>
-                </SidebarHeader>
+                <h1 className="flex items-center  p-5">
+                    {/* Logo */}
+                    <a href="/" className="flex items-center ">
+                        <svg className="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="24" height="24" rx="4" fill="#7E69AB" />
+                            <rect x="4" y="4" width="4" height="4" rx="1" fill="white" />
+                            <rect x="4" y="10" width="4" height="4" rx="1" fill="white" />
+                            <rect x="4" y="16" width="4" height="4" rx="1" fill="white" />
+                            <rect x="10" y="4" width="4" height="4" rx="1" fill="white" />
+                            <rect x="10" y="10" width="4" height="4" rx="1" fill="#33C3F0" />
+                            <rect x="10" y="16" width="4" height="4" rx="1" fill="white" />
+                            <rect x="16" y="4" width="4" height="4" rx="1" fill="white" />
+                            <rect x="16" y="10" width="4" height="4" rx="1" fill="white" />
+                            <rect x="16" y="16" width="4" height="4" rx="1" fill="white" />
+                        </svg>
+                        <span className="text-xl font-bold text-gray-900">Forge</span>
+                    </a>
+                </h1>
                 <SidebarRail className="bg-gray-50 border-r" />
                 <SidebarContent className="w-[240px]">
                     <SidebarGroup>
@@ -281,7 +294,7 @@ export function AppSidebar() {
                                                     />
                                                 </div>
                                                 <div className="flex mt-2 justify-end">
-                                                      <Button
+                                                    <Button
                                                         variant="ghost"
                                                         size="icon"
                                                         className="h-6 w-6 hover:cursor-pointer"
@@ -317,20 +330,20 @@ export function AppSidebar() {
                                                             <MoreVertical className="h-4 w-4" />
                                                             <span className="sr-only">More options</span>
                                                         </Button>
-                                                        
+
                                                         {dropdownOpen === project.id && (
-                                                            <div 
+                                                            <div
                                                                 ref={dropdownRef}
                                                                 className="absolute right-1 top-full  bg-white border rounded-lg shadow-lg z-50 w-32"
                                                             >
-                                                                <button 
+                                                                <button
                                                                     className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm hover:bg-gray-100"
                                                                     onClick={(e) => startEditing(project, e)}
                                                                 >
                                                                     <Edit className="h-4 w-4" />
                                                                     Edit
                                                                 </button>
-                                                                <button 
+                                                                <button
                                                                     className="flex items-center gap-2 w-full text-left px-3 py-2 text-sm text-red-600 hover:bg-gray-100"
                                                                     onClick={(e) => startDelete(project, e)}
                                                                 >
@@ -398,6 +411,35 @@ export function AppSidebar() {
                     </SidebarGroup>
 
                     <SidebarGroup>
+                        <SidebarGroupLabel className="px-4 py-2 text-sm font-medium">Meets</SidebarGroupLabel>
+                        <SidebarGroupContent>
+                            <div className="px-4 py-2">
+                                <div className="text-xs text-gray-500">TOTAL HOURS</div>
+                                <div className="text-2xl font-semibold">23.7 hours</div>
+                                <div className="mt-1 flex items-center text-xs text-green-500">
+                                    <span>+3.5% from last week</span>
+                                </div>
+                            </div>
+
+                            <Button
+                                variant="ghost"
+                                className={cn(
+                                    "flex h-10 w-full items-center justify-start gap-3 px-4 font-normal bg-blue-50 text-blue-600 hover:cursor-pointer"
+                                )}
+                                onClick={() => {
+                                    setActiveProjectId(null);
+                                    router.push(`/projects`);
+                                }}
+                            >
+                                <div className={cn("flex h-6 w-6 items-center justify-center rounded")}>
+                                    
+                                </div>
+                                <span>Stand_Up</span>
+                            </Button>
+                        </SidebarGroupContent>
+                    </SidebarGroup>
+
+                    <SidebarGroup>
                         <SidebarGroupLabel className="px-4 py-2 text-sm font-medium">Time</SidebarGroupLabel>
                         <SidebarGroupContent>
                             <div className="px-4 py-2">
@@ -423,7 +465,7 @@ export function AppSidebar() {
                     </SidebarGroup>
                 </SidebarContent>
             </Sidebar>
-            
+
             {/* Create Project Popup */}
             {showPopup && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/30">

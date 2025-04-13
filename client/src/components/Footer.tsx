@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
                 <rect x="16" y="10" width="4" height="4" rx="1" fill="white" />
                 <rect x="16" y="16" width="4" height="4" rx="1" fill="white" />
               </svg>
-              <span className="text-xl font-bold text-white">KanbanFlow</span>
+              <span className="text-xl font-bold text-white">Forge</span>
             </div>
             <p className="text-gray-400">
               The visual workflow tool that empowers teams to manage projects and tasks efficiently.
@@ -95,7 +95,7 @@ const Footer: React.FC = () => {
 
         {/* Footer Bottom */}
         <div className="pt-8 mt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-          <div>© 2025 KanbanFlow. All rights reserved.</div>
+          <div>© 2025 Forge. All rights reserved.</div>
           <div className="mt-4 md:mt-0 flex space-x-4">
             {['Privacy', 'Terms', 'Cookies'].map((item, i) => (
               <a key={i} href="#" className="hover:text-white transition-colors">

@@ -5,7 +5,7 @@ const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
       quote:
-        "KanbanFlow has transformed our team's productivity. The visual workflow makes it easy to track progress and identify bottlenecks.",
+        "Forge has transformed our team's productivity. The visual workflow makes it easy to track progress and identify bottlenecks.",
       author: "Sarah Johnson",
       position: "Product Manager at TechCorp",
       avatar: "https://randomuser.me/api/portraits/women/45.jpg",
@@ -21,7 +21,7 @@ const TestimonialsSection: React.FC = () => {
     },
     {
       quote:
-        "We've tried many project management tools, but KanbanFlow stands out with its simplicity and effectiveness. Highly recommended!",
+        "We've tried many project management tools, but Forge stands out with its simplicity and effectiveness. Highly recommended!",
       author: "Emily Rodriguez",
       position: "Operations Lead at GrowthStartup",
       avatar: "https://randomuser.me/api/portraits/women/68.jpg",
@@ -38,7 +38,7 @@ const TestimonialsSection: React.FC = () => {
             Loved by Teams Worldwide
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            See what our users have to say about how KanbanFlow has improved their workflow and productivity.
+            See what our users have to say about how Forge has improved their workflow and productivity.
           </p>
         </div>
 

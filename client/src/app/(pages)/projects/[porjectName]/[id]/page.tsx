@@ -1,6 +1,7 @@
 "use client"
 
 import { KanbanBoard } from '@/components/Kanban'
+import { ProjectHeader } from '@/components/project-header';
 import { useParams } from 'next/navigation'
 import React from 'react'
 
@@ -14,7 +15,7 @@ function Page() {
 
     return (
         <div>
-            <KanbanBoard project_id={project_id} />
+                <KanbanBoard project_id={project_id} />
         </div>
     )
 }

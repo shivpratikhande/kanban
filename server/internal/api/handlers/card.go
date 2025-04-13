@@ -28,7 +28,7 @@ func GetCards(c *gin.Context) {
 
 	cards, err := services.GetCards(columnID)
 	if err != nil {
-		utils.RespondWithError(c, http.StatusInternalServerError, "Failed to fetch cards")
+		utils.RespondWithError(c, http.StatusInternalServerError, "Failed to axios cards")
 		return
 	}
 

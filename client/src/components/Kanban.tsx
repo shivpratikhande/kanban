@@ -33,7 +33,7 @@ interface FormattedColumn {
     color: string;
 }
 
-export function KanbanBoard() {
+export function KanbanBoard({project_id} : any) {
     const [columns, setColumns] = useState<Column[]>([]);
     const [tasks, setTasks] = useState<Task[]>([]);
 
@@ -54,12 +54,13 @@ export function KanbanBoard() {
                 // Attempt to fetch from API, if it fails, use fallback data
                 try {
                     const [columnsRes, cardsRes] = await Promise.all([
-                        axios.get("http://localhost:8080/api/v1/columns"),
+                        axios.get(`http://localhost:8080/api/v1/columns?board_id=${project_id}`),
                         axios.get("http://localhost:8080/api/v1/cards"),
                     ]);
 
                     setColumns(columnsRes.data);
                     setTasks(cardsRes.data);
+                    console.log("Fetched data from API:", columnsRes.data, cardsRes.data);
                 } catch (apiError) {
                     console.warn("API connection failed, using fallback data:", apiError);
                 }

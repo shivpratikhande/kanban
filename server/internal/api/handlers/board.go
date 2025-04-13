@@ -15,7 +15,7 @@ import (
 func GetBoards(c *gin.Context) {
 	boards, err := services.GetAllBoards()
 	if err != nil {
-		utils.RespondWithError(c, http.StatusInternalServerError, "Failed to fetch boards")
+		utils.RespondWithError(c, http.StatusInternalServerError, "Failed to axios boards")
 		return
 	}
 

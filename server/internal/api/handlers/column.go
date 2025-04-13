@@ -28,7 +28,7 @@ func GetColumns(c *gin.Context) {
 
 	columns, err := services.GetColumns(boardID)
 	if err != nil {
-		utils.RespondWithError(c, http.StatusInternalServerError, "Failed to fetch columns")
+		utils.RespondWithError(c, http.StatusInternalServerError, "Failed to axios columns")
 		return
 	}
 

@@ -85,6 +85,9 @@ const teamMembers = [
 ]
 
 export function AppSidebar() {
+    
+
+
   return (
     <Sidebar className="border-r">
       <SidebarHeader className="flex items-center justify-center py-4">

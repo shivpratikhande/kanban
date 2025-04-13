@@ -9,7 +9,7 @@ export default function Home() {
     <div className="flex h-screen bg-white">
       <SidebarProvider>
         <AppSidebar />
-        <SidebarRailIcons />
+        {/* <SidebarRailIcons /> */}
         <div className="flex-1 flex flex-col overflow-hidden">
           <ProjectHeader />
           <div className="flex-1 overflow-auto">

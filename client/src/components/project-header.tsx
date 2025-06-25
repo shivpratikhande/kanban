@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
 import Meet from "./Meet"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 const teamMembers = [
     { id: 1, name: "AM", image: "/placeholder.svg?height=32&width=32" },
@@ -16,6 +17,14 @@ const teamMembers = [
 
 export function ProjectHeader() {
     const [clickedMeet, setClickedMeet] = useState(false)
+
+    const path  =usePathname()
+
+    const projectName = decodeURIComponent(path.split("/").slice(-2, -1)[0])
+
+
+
+    console.log(path, projectName)
 
     console.log(clickedMeet)
     return (
@@ -81,9 +90,9 @@ export function ProjectHeader() {
                 <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-3">
                         <div className="flex h-10 w-10 items-center justify-center rounded bg-gray-200">
-                            <span className="text-sm font-medium">PE</span>
+                            <span className="text-sm font-medium ">⭐ </span>
                         </div>
-                        <h1 className="text-xl font-semibold">Piper Enterprise</h1>
+                        <h1 className="text-xl font-semibold">{projectName}</h1>
                     </div>
                     <div className="flex items-center gap-2">
                         <div className="flex -space-x-2">

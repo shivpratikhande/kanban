@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from '@clerk/nextjs';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-100 py-4">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        
+
         {/* Logo */}
         <a href="/" className="flex items-center">
           <svg className="w-8 h-8 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,15 +36,25 @@ const Header: React.FC = () => {
         </nav>
 
         {/* Desktop Auth Buttons */}
+
         <div className="hidden md:flex items-center space-x-4">
-          <a href="#" className="text-gray-700 hover:text-indigo-600 font-medium">Login</a>
-          <a
-            href="#"
-            className="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors text-sm font-medium"
-          >
-            Sign Up Free
-          </a>
+
+          <SignedOut>
+            <SignInButton className="text-gray-700 hover:text-indigo-600 font-medium" />
+            <SignUpButton>
+              <button
+                className="inline-block bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors text-sm font-medium"
+              >
+                Sign Up
+              </button>
+            </SignUpButton>
+          </SignedOut>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
         </div>
+
 
         {/* Mobile Menu Toggle */}
         <button

@@ -99,8 +99,8 @@ export function TaskCard({
         <div className="">
             <div
                 className={`rounded-lg border-2 ${
+                    color === "bg-red-400" ? "bg-red-400/40" :
                     color === "bg-blue-400" ? "bg-blue-400/40" :
-                    color === "bg-yellow-400" ? "bg-yellow-400/40" :
                     color === "bg-green-500" ? "bg-green-500/40" : "bg-gray-500/20"
                 } p-3 shadow-xl break-words`}
                 draggable={true}

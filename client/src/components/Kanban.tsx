@@ -41,8 +41,8 @@ export function KanbanBoard({project_id} : any) {
     const [error, setError] = useState<string | null>(null);
 
     const columnStyles = {
-        "TO DO": "bg-blue-400",
-        "In Progress": "bg-yellow-400",
+        "TO DO": "bg-red-400",
+        "In Progress": "bg-blue-400",
         "Done": "bg-green-500"
     };
 
